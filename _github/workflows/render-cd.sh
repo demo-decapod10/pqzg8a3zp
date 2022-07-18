@@ -79,8 +79,8 @@ do
   echo "Almost finished: changing namespace for cluster-resouces from argo to cluster-name.."
   sudo sed -i "s/ namespace: argo/ namespace: $site/g" $(pwd)/$outputdir/$site/tks-cluster-aws/cluster-api-aws/*
   sudo sed -i "s/ - argo/ - $site/g" $(pwd)/$outputdir/$site/tks-cluster-aws/cluster-api-aws/*
-  sudo sed -i "s/ namespace: argo/ namespace: $site/g" $(pwd)/$outputdir/$site/tks-cluster-byoh/cluster-api-byoh/*
-  sudo sed -i "s/ - argo/ - $site/g" $(pwd)/$outputdir/$site/tks-cluster-byoh/cluster-api-byoh/*
+  #sudo sed -i "s/ namespace: argo/ namespace: $site/g" $(pwd)/$outputdir/$site/tks-cluster-byoh/cluster-api-byoh/*
+  #sudo sed -i "s/ - argo/ - $site/g" $(pwd)/$outputdir/$site/tks-cluster-byoh/cluster-api-byoh/*
   # It's possible besides of two above but very tricky!!
   # sudo sed -i "s/ argo$/ $site/g" $(pwd)/$outputdir/$site/tks-cluster-aws/cluster-api-aws/*
   echo "---
@@ -94,7 +94,7 @@ metadata:
     decapod-argocd-config: enabled
 " > Namespace_rc.yaml
   sudo cp Namespace_rc.yaml $(pwd)/$outputdir/$site/tks-cluster-aws/cluster-api-aws/
-  sudo cp Namespace_rc.yaml $(pwd)/$outputdir/$site/tks-cluster-byoh/cluster-api-byoh/
+  #sudo cp Namespace_rc.yaml $(pwd)/$outputdir/$site/tks-cluster-byoh/cluster-api-byoh/
   # End of Post process
 done
 
